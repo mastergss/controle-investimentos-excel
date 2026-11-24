@@ -36,6 +36,30 @@ Para tornar o simulador dinâmico e à prova de erros, foram aplicados os seguin
 
 ---
 
+## 🧮 Detalhes dos Cálculos (Etapa Atual)
+Nesta primeira versão do simulador, o foco está na projeção do acúmulo de capital ao longo do tempo utilizando a função financeira **Valor Futuro (`VF`)**.
+
+### Projeção de Patrimônio Acumulado (`VF`)
+A função `VF` calcula o montante total acumulado ao final do período escolhido, considerando os juros compostos sobre o capital inicial e os aportes mensais constantes.
+
+* **Fórmula utilizada:**
+  ```excel
+  =VF(taxa; nper; pgto; [vp]; [tipo])
+  ```
+* **Exemplo aplicado na planilha:**
+  ```excel
+  =VF(Taxa_Mensal; Prazo_Meses; -Aporte_Mensal; -Patrimonio_Inicial; 0)
+  ```
+
+* **Explicação de cada argumento:**
+  * **`taxa` (Taxa Mensal):** Rentabilidade percentual aplicada a cada mês.
+  * **`nper` (Número de Períodos):** Total de meses da simulação (ex: para 10 anos, `120` meses).
+  * **`pgto` (Pagamento/Aporte):** Valor investido mensalmente. *Nota: Inserido com sinal negativo (`-`) por convenção de fluxo de caixa do Excel (saída do bolso para o investimento), garantindo que o resultado final apareça positivo.*
+  * **`[vp]` (Valor Presente):** Patrimônio inicial já acumulado antes de iniciar os novos aportes (também com sinal negativo, ou `0` se começar do zero).
+  * **`[tipo]`:** Definido como `0` (ou omitido), indicando que os aportes são realizados ao final de cada mês.
+
+--- 
+
 ## 🖼️ Prévia do Projeto
 *(Espaço reservado para você adicionar os prints da sua planilha depois de criá-la)*
 
